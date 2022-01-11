@@ -4,6 +4,7 @@ public class Comodo {
     private String nomeComodo;
     private double comprimento;
     private double largura;
+    private double area;
     private TipoPiso tipoPiso;
 
     public Comodo(String nomeComodo, double comprimento, double largura, TipoPiso tipoPiso) {
@@ -11,6 +12,8 @@ public class Comodo {
         this.comprimento = comprimento;
         this.largura = largura;
         this.tipoPiso = tipoPiso;
+
+        area = comprimento * largura;
     }
 
     public String getNomeComodo() {
@@ -23,6 +26,10 @@ public class Comodo {
 
     public double getLargura() {
         return largura;
+    }
+
+    public double getArea() {
+        return area;
     }
 
     public TipoPiso getTipoPiso() {
