@@ -29,4 +29,13 @@ public class AddComodoView {
 
         return largura;
     }
+
+    public static boolean askContinuar() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Deseja continuar? [N - Não / qualquer coisa - Sim]: ");
+        String op = sc.next();
+
+        return !op.equals("N");
+    }
 }
