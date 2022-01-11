@@ -10,10 +10,12 @@ import java.util.List;
 public class ComodoController {
     private List<Comodo> comodos;
     private TipoPisoController tipoPisoController;
+    private double areaTotal;
 
     public ComodoController() {
         comodos = new ArrayList<Comodo>();
         tipoPisoController = new TipoPisoController();
+        areaTotal = 0;
     }
 
     public List<Comodo> getComodos() {
@@ -34,6 +36,9 @@ public class ComodoController {
         double comprimento = AddComodoView.askComprimento();
         double largura = AddComodoView.askLargura();
 
-        comodos.add(new Comodo(nomeComodo, comprimento, largura, tipo));
+        Comodo comodo = new Comodo(nomeComodo, comprimento, largura, tipo);
+        areaTotal += comodo.getArea();
+
+        comodos.add(comodo);
     }
 }
