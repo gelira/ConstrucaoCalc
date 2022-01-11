@@ -18,10 +18,10 @@ public class RelatorioView {
             areaTotal += area;
         }
 
-        System.out.printf("Área total com piso de %s: %.2f%n%n", tipo.getNomeTipo(), areaTotal);
+        System.out.printf("Área total com piso de %s: %.2f m²%n%n", tipo.getNomeTipo(), areaTotal);
     }
 
     public static void relatorioAreaTotal(double areaTotal) {
-        System.out.printf("A quantidade total de revestimento a ser adquirida é %.2f%n", areaTotal);
+        System.out.printf("A quantidade total de revestimento a ser adquirida é %.2f m²%n", areaTotal);
     }
 }

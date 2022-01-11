@@ -3,6 +3,7 @@ package br.com.gedev.controllers;
 import br.com.gedev.domain.Comodo;
 import br.com.gedev.domain.TipoPiso;
 import br.com.gedev.views.AddComodoView;
+import br.com.gedev.views.RelatorioView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ public class ComodoController {
         do {
             createComodo();
         } while (AddComodoView.askContinuar());
+
+        imprimirRelatorio();
     }
 
     private void createComodo() {
@@ -40,5 +43,23 @@ public class ComodoController {
         areaTotal += comodo.getArea();
 
         comodos.add(comodo);
+    }
+
+    private void imprimirRelatorio() {
+        List<TipoPiso> tiposPiso = tipoPisoController.getTiposPiso();
+
+        List<Comodo> comodosAuxiliar = new ArrayList<Comodo>();
+
+        for (TipoPiso tipoPiso : tiposPiso) {
+            for (Comodo comodo : comodos) {
+                if (tipoPiso.getIdTipo().equals(comodo.getTipoPiso().getIdTipo())) {
+                    comodosAuxiliar.add(comodo);
+                }
+            }
+            RelatorioView.relatorioPorTipoPiso(tipoPiso, comodosAuxiliar);
+            comodosAuxiliar.clear();
+        }
+
+        RelatorioView.relatorioAreaTotal(areaTotal);
     }
 }
